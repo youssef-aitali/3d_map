@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.73/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.73/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+<style>
+    html,body, #cesiumContainer {
+        margin: 0;
+        width: 100%; 
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmM2JjZTliMy1jM2MyLTQwYWQtOWVkYS02NmZhYWFjNjlhMzEiLCJpZCI6MzM4MjMsImlhdCI6MTU5OTMwNDA0NX0.dBiZSrgDgoIdRPRU8Z0mbemKcr69p8PSIi-ZQvHH2RA';
+    var viewer = new Cesium.Viewer('cesiumContainer', {
+        terrainProvider: Cesium.createWorldTerrain()
+    });
+
+    var tileset = viewer.scene.primitives.add(
+        new Cesium.Cesium3DTileset({
+            url: Cesium.IonResource.fromAssetId(148433),
+        })
+    );
+
+    viewer.zoomTo(tileset)
+
+  </script>
+</body>
+</html>
